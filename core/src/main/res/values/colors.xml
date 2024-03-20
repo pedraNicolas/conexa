@@ -5,5 +5,12 @@
 
     <color name="gray_title_text">#333333</color>
     <color name="gray">#808080</color>
+    <color name="lightGray0">#fafafa</color>
+    <color name="lightGray">#ffaeaeae</color>
+    <color name="lightGray1">#F3F3F3</color>
+    <color name="lightGray2">#C9D2D4</color>
+    <color name="lightGray3">#EDEDED</color>
     <color name="silver">#C0C0C0</color>
+
+    <color name="textBlue">#1951a0</color>
 </resources>

@@ -1,0 +1,21 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+}
+
+android {
+    namespace 'com.pedra.conexacomponents'
+}
+
+dependencies {
+
+    implementation(project (Deps.core))
+
+    implementation(Deps.androidx_appcompat)
+    implementation(Deps.google_android_material)
+    implementation(Deps.androidx_constraint_layout)
+    implementation(Deps.recyclerview)
+    implementation(Deps.glide)
+
+}

@@ -1,11 +1,18 @@
 package com.pedra.conexarepositories.usecase
 
-import com.pedra.conexarepositories.NewsRepository
+import com.pedra.conexamodel.NewsUI
+import com.pedra.conexarepositories.interfaces.NewsRepositoryInterface
+import com.pedra.conexarepositories.mappers.NewsMapper
 
-class NewsUseCase {
-    private val newsRepository = NewsRepository()
+class NewsUseCase(
+    private val newsRepository: NewsRepositoryInterface
+) {
 
-    suspend fun getNews(){
-        newsRepository.getNews()
+    suspend fun getNewsUIList(): List<NewsUI> {
+        val mapper = NewsMapper.INSTANCE
+        val list = newsRepository.getAllNews().map {
+            mapper.newsToUI(it)
+        }
+        return list
     }
 }

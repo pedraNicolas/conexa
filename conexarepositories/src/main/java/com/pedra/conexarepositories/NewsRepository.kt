@@ -1,12 +1,14 @@
 package com.pedra.conexarepositories
 
-import com.pedra.conexanetwork.ApiRetrofitImpl
+import com.pedra.conexanetwork.ApiRetrofitInterface
+import com.pedra.conexanetwork.dtos.news.NewsDTO
+import com.pedra.conexarepositories.interfaces.NewsRepositoryInterface
 
-internal class NewsRepository {
+internal class NewsRepository(
+    private val apiRetrofitImpl: ApiRetrofitInterface
+) : NewsRepositoryInterface {
 
-    private val apiRetrofitImpl = ApiRetrofitImpl()
-
-    suspend fun getNews(){
-        apiRetrofitImpl.getNews()
+    override suspend fun getAllNews(): List<NewsDTO> {
+        return apiRetrofitImpl.getNews()
     }
 }

@@ -13,9 +13,8 @@ dependencies {
     implementation(project (Deps.core))
 
     implementation(Deps.retrofit2)
-    implementation(Deps.google_gson)
     implementation(Deps.retrofitGsonConverter)
-//    implementation(Deps.okhttp3)
+    implementation(Deps.okhttp3)
 
     testImplementation(Deps.junit)
     androidTestImplementation(Deps.androidx_junit_test)

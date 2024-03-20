@@ -18,5 +18,7 @@ data class NewsDTO(
     @SerializedName("publishedAt")
     val publishedAt: String,
     @SerializedName("updatedAt")
-    val updatedAt: String
+    val updatedAt: String,
+    @SerializedName("userId")
+    val userId: Int
 )

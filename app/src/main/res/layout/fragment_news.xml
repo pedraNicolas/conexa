@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/dp16"
+    android:scrollbars="vertical"
+    android:scrollbarStyle="outsideOverlay"
     tools:context=".views.news.NewsFragment">
 
     <LinearLayout
@@ -18,15 +20,23 @@
             android:text="@string/your_news" />
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvDate"
             style="@style/TextAppearance.Material3.TitleMedium.Gray"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="19 de Marzo" />
 
-        <androidx.recyclerview.widget.RecyclerView
+        <com.pedra.conexacomponents.custom.SearchComponent
+            android:id="@+id/searchNews"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp32"
+            android:paddingVertical="@dimen/dp16"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvNews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp16"
             android:nestedScrollingEnabled="false"
             tools:itemCount="10"
             tools:listitem="@layout/item_new" />

@@ -9,10 +9,28 @@
         android:id="@+id/newsFragment"
         android:name="com.pedra.conexa.views.news.NewsFragment"
         android:label="fragment_news"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/action_newsFragment_to_selectedNewFragment"
+            app:destination="@id/selectedNewFragment" />
+    </fragment>
     <fragment
         android:id="@+id/usersFragment"
         android:name="com.pedra.conexa.views.users.UsersFragment"
         android:label="fragment_users"
-        tools:layout="@layout/fragment_users" />
+        tools:layout="@layout/fragment_users" >
+        <action
+            android:id="@+id/action_usersFragment_to_selectedUserFragment"
+            app:destination="@id/selectedUserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectedNewFragment"
+        android:name="com.pedra.conexa.views.news.selectedNew.SelectedNewFragment"
+        android:label="fragment_selected_new"
+        tools:layout="@layout/fragment_selected_new" />
+    <fragment
+        android:id="@+id/selectedUserFragment"
+        android:name="com.pedra.conexa.views.users.selectedUser.SelectedUserFragment"
+        android:label="fragment_selected_user"
+        tools:layout="@layout/fragment_selected_user" />
 </navigation>

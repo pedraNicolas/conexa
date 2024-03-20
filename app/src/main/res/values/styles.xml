@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextAppearance.Material3.TitleMedium.Gray" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+    <style name="TextAppearance.Material3.DisplayMedium.Black" parent="TextAppearance.Material3.DisplayMedium">
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="TextAppearance.Material3.BodySmall.Gray" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+    <style name="TextAppearance.Material3.LabelSmall.Gray" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+    <style name="TextAppearance.Material3.BodyMedium.Gray" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="TextAppearance.Material3.TitleSmall.AuthorName" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textColor">@color/textBlue</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

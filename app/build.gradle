@@ -8,17 +8,6 @@ plugins {
 
 android {
     namespace 'com.pedra.conexa'
-    compileSdk Config.compileSdk
-
-    defaultConfig {
-        applicationId "com.pedra.conexa"
-        minSdk Config.minSdk
-        targetSdk Config.targetSdk
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
 
     buildTypes {
         release {
@@ -26,21 +15,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility Config.javaVersion
-        targetCompatibility Config.javaVersion
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-    viewBinding{
-        enabled = true
-    }
 }
 
 dependencies {
     implementation(project (Deps.core))
+    implementation(project (Deps.conexamodel))
     implementation(project (Deps.conexarepositories))
+    implementation(project (Deps.conexacomponents))
 
     implementation(Deps.androidx_appcompat)
     implementation(Deps.google_android_material)
@@ -53,6 +34,7 @@ dependencies {
     implementation(Deps.recyclerview)
     implementation(Deps.navigation)
     implementation(Deps.navigation_ui)
+    implementation(Deps.glide)
 
     testImplementation(Deps.junit)
     androidTestImplementation(Deps.androidx_junit_test)

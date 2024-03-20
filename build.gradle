@@ -11,4 +11,43 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
         classpath "com.google.firebase:firebase-crashlytics-gradle:${Versions.firebase_crashlytics_gradle}"
     }
+
+    subprojects {
+        afterEvaluate { project ->
+            if (project.hasProperty("android")) {
+
+                def versionMajor = 0
+                def versionMinor = 0
+                def versionPatch = 1
+
+                android {
+                    compileSdkVersion(Config.compileSdk)
+
+                    buildFeatures {
+                        dataBinding = true
+                        viewBinding = true
+                    }
+
+                    defaultConfig {
+                        minSdkVersion(Config.minSdk)
+                        targetSdkVersion(Config.targetSdk)
+                        multiDexEnabled = true
+                        versionCode = Integer.valueOf("${versionMajor}${versionMinor}${versionPatch}")
+                        versionName = "${versionMajor}.${versionMinor}.${versionPatch}"
+
+                        compileOptions {
+                            sourceCompatibility Config.javaVersion
+                            targetCompatibility Config.javaVersion
+                        }
+
+                        kotlinOptions {
+                            jvmTarget = '1.8'
+                        }
+
+                        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+                    }
+                }
+            }
+        }
+    }
 }

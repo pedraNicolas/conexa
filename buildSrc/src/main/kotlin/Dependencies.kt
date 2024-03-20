@@ -17,7 +17,6 @@ object Versions {
     const val junit = "4.13.2"
     const val androidx_espresso_core = "3.5.1"
     const val retrofit2 = "2.9.0"
-    val google_gson = "2.8.6"
     const val okhttp3 = "4.4.1"
     const val google_maps = "18.2.0"
     const val firebase_bom = "32.2.0"
@@ -30,9 +29,10 @@ object Versions {
     const val recyclerview = "1.2.1"
     const val viewmodel = "2.5.0"
     const val livedate = "2.5.0"
-    val google_services = "4.3.15"
-    val kotlin = "1.8.21"
-    val firebase_crashlytics_gradle = "2.9.5"
+    const val glide = "4.9.0"
+    const val google_services = "4.3.15"
+    const val kotlin = "1.8.21"
+    const val firebase_crashlytics_gradle = "2.9.5"
 //    const val room = "2.5.1"
 }
 
@@ -43,6 +43,7 @@ object Deps {
     const val activity_ktx =  "androidx.activity:activity-ktx:${Versions.activity_version}"
     const val fragment_ktx = "androidx.fragment:fragment-ktx:${Versions.fragment_version}"
     const val recyclerview = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
 
     const val google_android_material = "com.google.android.material:material:${Versions.google_android_material}"
     const val google_maps = "com.google.android.gms:play-services-maps:${Versions.google_maps}"
@@ -51,9 +52,8 @@ object Deps {
     const val firebase_analytics = "com.google.firebase:firebase-analytics"
 
     const val retrofit2 = "com.squareup.retrofit2:retrofit:${Versions.retrofit2}"
-    //    const val okhttp3 = "com.squareup.okhttp3:okhttp:${Versions.okhttp3}"
+    const val okhttp3 = "com.squareup.okhttp3:okhttp:${Versions.okhttp3}"
     const val retrofitGsonConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit2}"
-    val google_gson = "com.google.code.gson:gson:${Versions.google_gson}"
     const val mapstruct = "org.mapstruct:mapstruct:${Versions.mapstruct}"
     const val mapstruct_procesor = "org.mapstruct:mapstruct-processor:${Versions.mapstruct_procesor}"
 //    const val room = "androidx.room:room-ktx:${Versions.room}"
@@ -78,4 +78,5 @@ object Deps {
     const val conexamodel = ":conexamodel"
     //    const val conexadatabase = ":conexadatabase"
     const val conexarepositories = ":conexarepositories"
+    const val conexacomponents = ":conexacomponents"
 }
