@@ -1,0 +1,23 @@
+apply plugin: "com.android.library"
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+
+android {
+    namespace 'com.pedra.conexanetwork'
+    compileSdk Config.compileSdk
+}
+
+dependencies {
+
+    implementation(project (Deps.core))
+
+    implementation(Deps.retrofit2)
+    implementation(Deps.google_gson)
+    implementation(Deps.retrofitGsonConverter)
+//    implementation(Deps.okhttp3)
+
+    testImplementation(Deps.junit)
+    androidTestImplementation(Deps.androidx_junit_test)
+    androidTestImplementation(Deps.androidx_espresso_core)
+}

@@ -1,0 +1,17 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.pedra.core'
+    compileSdk Config.compileSdk
+}
+
+dependencies {
+    api(platform(Deps.firebase_bom))
+    api(Deps.androidx_core_ktx)
+    api(Deps.crashlytics)
+    api(Deps.firebase_analytics)
+    api(Deps.coroutines)
+}

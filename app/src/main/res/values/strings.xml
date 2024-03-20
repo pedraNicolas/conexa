@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Conexa</string>
+    <string name="users">Users</string>
+    <string name="news">News</string>
+    <string name="your_news">Your news</string>
+</resources>

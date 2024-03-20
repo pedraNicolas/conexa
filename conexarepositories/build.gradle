@@ -1,0 +1,27 @@
+plugins{
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'com.pedra.conexarepositories'
+    compileSdk Config.compileSdk
+}
+
+dependencies {
+
+
+    implementation(project(Deps.core))
+    implementation(project(Deps.conexamodel))
+    implementation(project(Deps.conexanetwork))
+//    implementation(project(Deps.conexadatabase))
+
+    implementation(Deps.mapstruct)
+    kapt(Deps.mapstruct_procesor)
+
+    testImplementation(Deps.junit)
+    androidTestImplementation(Deps.androidx_junit_test)
+    androidTestImplementation(Deps.androidx_espresso_core)
+}

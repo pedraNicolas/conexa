@@ -1,0 +1,21 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'com.pedra.conexamodel'
+    compileSdk Config.compileSdk
+}
+
+dependencies {
+
+    implementation(project (Deps.core))
+
+    testImplementation(Deps.junit)
+    androidTestImplementation(Deps.androidx_junit_test)
+    androidTestImplementation(Deps.androidx_espresso_core)
+}

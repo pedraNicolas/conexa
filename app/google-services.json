@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "504413256462",
+    "project_id": "conexaproject",
+    "storage_bucket": "conexaproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504413256462:android:946171b1435c59b103755f",
+        "android_client_info": {
+          "package_name": "com.pedra.conexa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7Lh1qgz8k_3AMZxJdAm9_DMBi1azbZmk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,60 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'com.pedra.conexa'
+    compileSdk Config.compileSdk
+
+    defaultConfig {
+        applicationId "com.pedra.conexa"
+        minSdk Config.minSdk
+        targetSdk Config.targetSdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility Config.javaVersion
+        targetCompatibility Config.javaVersion
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    viewBinding{
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation(project (Deps.core))
+    implementation(project (Deps.conexarepositories))
+
+    implementation(Deps.androidx_appcompat)
+    implementation(Deps.google_android_material)
+    implementation(Deps.androidx_constraint_layout)
+    implementation(Deps.google_maps)
+    implementation(Deps.viewmodel)
+    implementation(Deps.livedate)
+    implementation(Deps.activity_ktx)
+    implementation(Deps.fragment_ktx)
+    implementation(Deps.recyclerview)
+    implementation(Deps.navigation)
+    implementation(Deps.navigation_ui)
+
+    testImplementation(Deps.junit)
+    androidTestImplementation(Deps.androidx_junit_test)
+    androidTestImplementation(Deps.androidx_espresso_core)
+}
