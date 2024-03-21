@@ -4,8 +4,9 @@ import com.pedra.conexamodel.NewsUI
 import com.pedra.conexarepositories.interfaces.NewsRepositoryInterface
 import com.pedra.conexarepositories.mappers.NewsMapper
 import java.lang.Exception
+import javax.inject.Inject
 
-class NewsUseCase(
+class NewsUseCase @Inject constructor(
     private val newsRepository: NewsRepositoryInterface
 ) {
 

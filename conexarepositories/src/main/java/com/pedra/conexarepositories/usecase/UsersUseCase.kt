@@ -4,8 +4,9 @@ import com.pedra.conexamodel.UserUI
 import com.pedra.conexarepositories.interfaces.UsersRepositoryInterface
 import com.pedra.conexarepositories.mappers.UsersMapper
 import java.lang.Exception
+import javax.inject.Inject
 
-class UsersUseCase(
+class UsersUseCase @Inject constructor(
     private val usersRepository: UsersRepositoryInterface
 ) {
 
