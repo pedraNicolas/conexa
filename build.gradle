@@ -10,6 +10,7 @@ buildscript {
         classpath "com.google.gms:google-services:${Versions.google_services}"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
         classpath "com.google.firebase:firebase-crashlytics-gradle:${Versions.firebase_crashlytics_gradle}"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:${Versions.dagger}"
     }
 
     subprojects {

@@ -5,8 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.pedra.conexa.databinding.ItemNewBinding
+import com.pedra.conexa.databinding.ItemUsersBinding
 import com.pedra.conexa.views.news.NewsViewHolder
+import com.pedra.conexa.views.users.UsersViewHolder
 import com.pedra.conexamodel.NewsUI
+import com.pedra.conexamodel.UserUI
 
 enum class ViewHolderType {
     NewsViewHolder,
@@ -44,8 +47,8 @@ class GenericRecyclerAdapter<T, S>(
             }
 
             ViewHolderType.UsersViewHolder -> {
-                val binding = ItemNewBinding.inflate(layoutInflater, parent, false)
-                NewsViewHolder(binding)
+                val binding = ItemUsersBinding.inflate(layoutInflater, parent, false)
+                UsersViewHolder(binding)
             }
         }
     }
@@ -63,7 +66,10 @@ class GenericRecyclerAdapter<T, S>(
             }
 
             ViewHolderType.UsersViewHolder ->{
-
+                (holder as UsersViewHolder).render(
+                    item as UserUI,
+                    onPrimaryClick as (UserUI) -> Unit
+                )
             }
         }
     }

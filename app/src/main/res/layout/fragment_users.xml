@@ -1,9 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.users.UsersFragment">
+    android:padding="@dimen/dp16"
+    android:scrollbars="vertical"
+    android:scrollbarStyle="outsideOverlay"
+    tools:context=".views.news.NewsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/TextAppearance.Material3.HeadlineMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/users" />
 
 
-</FrameLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvUsers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp16"
+            android:nestedScrollingEnabled="false"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_users" />
+
+        <ProgressBar
+            android:id="@+id/pbLoading"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_centerHorizontal="true"
+            android:indeterminate="true"
+            android:visibility="gone" />
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

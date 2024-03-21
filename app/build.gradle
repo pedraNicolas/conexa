@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-parcelize'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -35,8 +36,14 @@ dependencies {
     implementation(Deps.navigation)
     implementation(Deps.navigation_ui)
     implementation(Deps.glide)
+    implementation(Deps.dagger)
+    kapt(Deps.dagger_compiler)
 
     testImplementation(Deps.junit)
+    testImplementation(Deps.coroutinesTest)
+    testImplementation(Deps.mockk)
+    testImplementation(Deps.core_testing)
+
     androidTestImplementation(Deps.androidx_junit_test)
     androidTestImplementation(Deps.androidx_espresso_core)
 }

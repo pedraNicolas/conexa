@@ -3,8 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="gray_title_text">#333333</color>
     <color name="gray">#808080</color>
+    <color name="darkGray">#333333</color>
     <color name="lightGray0">#fafafa</color>
     <color name="lightGray">#ffaeaeae</color>
     <color name="lightGray1">#F3F3F3</color>
@@ -13,4 +13,16 @@
     <color name="silver">#C0C0C0</color>
 
     <color name="textBlue">#1951a0</color>
+
+    <!-- Users colors-->
+    <color name="nc_color0">#9747FF</color>
+    <color name="nc_color1">#4766FF</color>
+    <color name="nc_color2">#FF4747</color>
+    <color name="nc_color3">#008D43</color>
+    <color name="nc_color4">#A70000</color>
+    <color name="nc_color5">#00AD54</color>
+    <color name="nc_color6">#FF5100</color>
+    <color name="nc_color7">#0031A2</color>
+    <color name="nc_color8">#009107</color>
+    <color name="nc_color9">#C51111</color>
 </resources>

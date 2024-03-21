@@ -1,19 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/dp16"
-    android:scrollbars="vertical"
     android:scrollbarStyle="outsideOverlay"
+    android:scrollbars="vertical"
     tools:context=".views.news.NewsFragment">
 
     <LinearLayout
+        android:id="@+id/rlContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTitle"
             style="@style/TextAppearance.Material3.DisplayMedium.Black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,17 +32,40 @@
             android:id="@+id/searchNews"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="@dimen/dp16"/>
+            android:paddingVertical="@dimen/dp16" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvNews"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp16"
-            android:nestedScrollingEnabled="false"
-            tools:itemCount="10"
-            tools:listitem="@layout/item_new" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvNews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp16"
+                android:nestedScrollingEnabled="false"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:itemCount="10"
+                tools:listitem="@layout/item_new" />
+
+            <ProgressBar
+                android:id="@+id/pbLoading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:indeterminate="true"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

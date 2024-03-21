@@ -3,6 +3,7 @@ plugins{
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -16,12 +17,14 @@ dependencies {
     implementation(project(Deps.core))
     implementation(project(Deps.conexamodel))
     implementation(project(Deps.conexanetwork))
-//    implementation(project(Deps.conexadatabase))
 
     implementation(Deps.mapstruct)
     kapt(Deps.mapstruct_procesor)
+    implementation(Deps.dagger)
+    kapt(Deps.dagger_compiler)
 
     testImplementation(Deps.junit)
+    testImplementation(Deps.mockk)
     androidTestImplementation(Deps.androidx_junit_test)
     androidTestImplementation(Deps.androidx_espresso_core)
 }

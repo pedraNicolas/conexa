@@ -1,7 +1,11 @@
-apply plugin: "com.android.library"
-apply plugin: 'org.jetbrains.kotlin.android'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-parcelize'
+plugins {
+    id "com.android.library"
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
 
 android {
     namespace 'com.pedra.conexanetwork'
@@ -15,6 +19,8 @@ dependencies {
     implementation(Deps.retrofit2)
     implementation(Deps.retrofitGsonConverter)
     implementation(Deps.okhttp3)
+    implementation(Deps.dagger)
+    kapt(Deps.dagger_compiler)
 
     testImplementation(Deps.junit)
     androidTestImplementation(Deps.androidx_junit_test)

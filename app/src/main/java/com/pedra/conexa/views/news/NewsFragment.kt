@@ -15,9 +15,12 @@ import com.pedra.conexa.utils.ViewHolderType
 import com.pedra.conexacomponents.interfaces.OnTextChangeListener
 import com.pedra.conexamodel.NewsUI
 import com.pedra.core.ConstantsConexa
+import com.pedra.core.utils.ResourceState
 import com.pedra.core.utils.UtilDate
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
 
+@AndroidEntryPoint
 class NewsFragment : Fragment(), OnTextChangeListener {
 
     private lateinit var binding: FragmentNewsBinding
@@ -71,7 +74,10 @@ class NewsFragment : Fragment(), OnTextChangeListener {
                 bundle.putString(ConstantsConexa.IMAGE, it.image)
                 bundle.putInt(ConstantsConexa.USERID, it.userId)
                 bundle.putString(ConstantsConexa.UPDATED_AT, it.updatedAt)
-                findNavController().navigate(R.id.action_newsFragment_to_selectedNewFragment, bundle)
+                findNavController().navigate(
+                    R.id.action_newsFragment_to_selectedNewFragment,
+                    bundle
+                )
             })
 
         binding.rvNews.adapter = newsAdapter
@@ -88,13 +94,36 @@ class NewsFragment : Fragment(), OnTextChangeListener {
 
     private fun setUpObservers() {
         viewModel.newsLiveData.observe(viewLifecycleOwner) {
-            populateList(it)
+            with(binding){
+                when (it) {
+                    is ResourceState.Loading -> {
+                        pbLoading.visibility = View.VISIBLE
+                        rvNews.visibility = View.GONE
+                    }
+                    is ResourceState.Success -> {
+                        pbLoading.visibility = View.GONE
+                        rvNews.visibility = View.VISIBLE
+                        populateList(it.data)
+                    }
+
+                    is ResourceState.Failure -> {
+                        pbLoading.visibility = View.GONE
+                        rvNews.visibility = View.VISIBLE
+                    }
+                }
+            }
+
         }
     }
 
     override fun onTextChanged(query: String?) {
         if (!query.isNullOrBlank()) {
-           val filteredList = newsUIList.filter { it.title.contains(query, true) || it.content.contains(query, true)}
+            val filteredList = newsUIList.filter {
+                it.title.contains(query, true) || it.content.contains(
+                    query,
+                    true
+                )
+            }
             newsAdapter.updateList(filteredList)
         } else {
             newsAdapter.updateList(newsUIList)

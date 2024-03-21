@@ -20,4 +20,11 @@
         <item name="android:textColor">@color/textBlue</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="MaterialToolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp40</item>
+        <item name="android:background">@color/darkGray</item>
+        <item name="navigationIconTint">@color/white</item>
+    </style>
 </resources>

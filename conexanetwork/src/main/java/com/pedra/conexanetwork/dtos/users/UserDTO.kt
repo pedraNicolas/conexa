@@ -10,13 +10,15 @@ data class UserDTO(
     @SerializedName("email")
     val email: String,
     @SerializedName("firstname")
-    val firstname: String,
+    val firstName: String,
     @SerializedName("id")
     val id: Int,
     @SerializedName("lastname")
-    val lastname: String,
+    val lastName: String,
     @SerializedName("phone")
     val phone: String,
     @SerializedName("website")
-    val website: String
+    val website: String,
+    @SerializedName("company")
+    val company: CompanyDTO,
 )

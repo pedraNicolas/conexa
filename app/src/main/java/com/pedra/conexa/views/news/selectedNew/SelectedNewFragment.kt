@@ -6,11 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.pedra.conexa.R
 import com.pedra.conexa.databinding.FragmentSelectedNewBinding
 import com.pedra.conexa.views.news.NewsViewModel
 import com.pedra.core.ConstantsConexa
+import com.pedra.core.utils.ResourceState
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SelectedNewFragment : Fragment() {
 
     private lateinit var binding: FragmentSelectedNewBinding
@@ -41,9 +46,33 @@ class SelectedNewFragment : Fragment() {
     }
 
     private fun setUpViewModel() {
+        if(userId != 0) viewModel.getUSerById(userId.toString())
     }
 
     private fun setUpObservers() {
+        viewModel.userLiveData.observe(viewLifecycleOwner){
+            with(binding){
+                    when (it) {
+                        is ResourceState.Loading -> {
+                            pbLoading.visibility = View.VISIBLE
+                            llView.visibility = View.GONE
+                        }
+                        is ResourceState.Success -> {
+                            pbLoading.visibility = View.GONE
+                            llView.visibility = View.VISIBLE
+                            val user = it.data
+                            val name = "${user.firstName} ${user.lastName}"
+                            tvAuthor.text = name
+                            tvCompany.text = user.companyName
+                        }
+
+                        is ResourceState.Failure -> {
+                            pbLoading.visibility = View.GONE
+                            llView.visibility = View.VISIBLE
+                        }
+                    }
+            }
+        }
     }
 
     private fun getBundleArguments() {
@@ -59,6 +88,13 @@ class SelectedNewFragment : Fragment() {
             tvTitle.text = title
             tvDate.text = updatedAt
             tvBody.text = body
+
+            Glide.with(this@SelectedNewFragment).load(image)
+                .placeholder(R.drawable.progress_animation).into(ivImageNew)
+
+            topAppBar.setNavigationOnClickListener {
+                findNavController().popBackStack()
+            }
         }
     }
 }

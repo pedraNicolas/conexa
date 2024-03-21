@@ -27,13 +27,14 @@ internal class ApiRetrofitImpl : ApiRetrofitInterface {
                     }
 
                     else -> {
-                        throw Exception()
+                        throw Exception(it.message())
                     }
                 }
             } ?: throw Exception()
         }
     }
 
+    @Throws(Exception::class)
     override suspend fun getAllUsers(): List<UserDTO> {
         val retrofit =
             ApiManager.getInstance(ConstantsNetwork.JSON_PLACE_HOLDER_URL).getApiRetrofit()
@@ -50,16 +51,16 @@ internal class ApiRetrofitImpl : ApiRetrofitInterface {
                     }
 
                     else -> {
-                        throw Exception()
+                        throw Exception(it.message())
                     }
                 }
             } ?: throw Exception()
         }
     }
 
-    override suspend fun getUserById(id: String): UserDTO {
-        val retrofit =
-            ApiManager.getInstance(ConstantsNetwork.JSON_PLACE_HOLDER_URL).getApiRetrofit()
+    @Throws(Exception::class)
+    override suspend fun getUserById(id: String): UserDTO? {
+        val retrofit = ApiManager.getInstance(ConstantsNetwork.JSON_PLACE_HOLDER_URL).getApiRetrofit()
 
         return withContext(Dispatchers.IO) {
 
@@ -73,7 +74,7 @@ internal class ApiRetrofitImpl : ApiRetrofitInterface {
                     }
 
                     else -> {
-                        throw Exception()
+                        throw Exception(it.message())
                     }
                 }
             } ?: throw Exception()

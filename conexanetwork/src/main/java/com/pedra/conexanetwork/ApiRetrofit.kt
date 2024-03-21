@@ -12,7 +12,7 @@ interface ApiRetrofit {
     suspend fun getAllUsers(): Response<List<UserDTO>>
 
     @GET("/users/{id}")
-    suspend fun getUserByID(@Path("id") id: String): Response<UserDTO>
+    suspend fun getUserByID(@Path("id") id: String): Response<UserDTO?>
 
     @GET("/posts")
     suspend fun getAllNews(): Response<List<NewsDTO>>
